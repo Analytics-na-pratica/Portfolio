@@ -73,6 +73,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   article p:last-child{ margin-bottom:0; }
   article h2{ font-size: 24px; margin-top: 48px; margin-bottom: 18px; color: var(--ink); }
   article strong{ color: var(--ink); font-weight: 500; }
+  article code{ font-family: var(--mono); font-size: 0.9em; background: var(--bg-raised); padding: 2px 6px; border-radius: 3px; color: var(--teal-bright); }
   .lede{ font-size: 19px; color: var(--ink); }
 
   .video-card{
@@ -132,6 +133,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="lede">Quarto vídeo, e aqui a mão já foi na massa.</p>
 
     <p>Criei todas as contas do projeto do zero: repositório no GitHub, o esqueleto do site fictício, a propriedade do Google Analytics, o contêiner do Tag Manager e a base pro BigQuery — tudo gratuito, sem cartão de crédito em nenhuma etapa.</p>
+
+    <h2>Repositório e esqueleto do site</h2>
+
+    <p>Comecei no GitHub, com um repositório público — não privado: parte do valor desse projeto é o próprio repositório virar portfólio visível. Ativei o GitHub Pages direto pela branch principal, sem automação via Actions — simplicidade importa mais que sofisticação pra um site estático simples.</p>
+
+    <p>O site fictício tem quatro páginas: início, produto, carrinho e confirmação — o caminho mínimo de uma compra. Sem esse funil, não tem o que medir depois.</p>
+
+    <h2>GA4 e Tag Manager</h2>
+
+    <p>Na propriedade do Google Analytics, um detalhe que passa despercebido: o campo de URL já vem com um seletor separado pra "https://" — colar o protocolo de novo dentro do campo de texto duplica e deixa a URL inválida. A Métrica Otimizada já vem ativada, capturando <code>page_view</code> automaticamente — e, segundo a documentação do Google, esse evento não pode ser desativado. Guardei essa informação pra decidir o que fazer na etapa de implementação do tracking.</p>
+
+    <p>No Tag Manager, o contêiner gera dois blocos de código — um pro <code>&lt;head&gt;</code>, outro pro <code>&lt;body&gt;</code> — que colei nas quatro páginas, respeitando a ordem: <code>&lt;meta charset="UTF-8"&gt;</code> sempre primeiro, garantindo que o navegador interprete acento corretamente antes de processar qualquer script.</p>
+
+    <p>Criei também o projeto no Google Cloud — vazio por enquanto, mas necessário: o vínculo entre GA4 e BigQuery, mais pra frente, exige que esse projeto já exista.</p>
 
     <h2>Os tropeços fazem parte</h2>
 

@@ -73,6 +73,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   article p:last-child{ margin-bottom:0; }
   article h2{ font-size: 24px; margin-top: 48px; margin-bottom: 18px; color: var(--ink); }
   article strong{ color: var(--ink); font-weight: 500; }
+  article code{ font-family: var(--mono); font-size: 0.9em; background: var(--bg-raised); padding: 2px 6px; border-radius: 3px; color: var(--teal-bright); }
   .lede{ font-size: 19px; color: var(--ink); }
 
   .video-card{
@@ -131,7 +132,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <article class="wrap">
     <p class="lede">Antes de começar a implementação de verdade, uma parada rápida nas ferramentas.</p>
 
-    <p>Todas gratuitas, com foco no ecossistema Google: Analytics, Tag Manager, BigQuery e Data Studio.</p>
+    <p>Escolhi o ecossistema Google de propósito: é a stack mais usada hoje em analytics, então dominar ela é sobre empregabilidade real, não só sobre esse projeto.</p>
+
+    <h2>As peças do projeto</h2>
+
+    <p><strong>Google Analytics 4</strong> — onde o comportamento do usuário chega e vira relatório. É o destino final dos eventos que configurei.</p>
+
+    <p><strong>Google Tag Manager</strong> — centraliza a gestão de tags sem precisar mexer direto no código do site. É onde a lógica de cada evento é montada.</p>
+
+    <p><strong>Data Layer</strong> — não é bem uma ferramenta, é uma estrutura de dados dentro do próprio site, que organiza informação antes de qualquer ferramenta ler. É a base de tudo.</p>
+
+    <p><strong>BigQuery</strong> — banco de dados na nuvem, feito pra SQL em grande volume. É onde valido, com dado bruto, se o que o GA4 mostra bate com a realidade.</p>
+
+    <p><strong>Looker Studio</strong> — transforma dado validado em dashboard, pra apresentar como se fosse pra um cliente.</p>
+
+    <p><strong>GitHub Pages</strong> — hospedagem gratuita do site fictício, e, de quebra, uma peça de portfólio técnico visível.</p>
+
+    <p>E fora do ecossistema Google: <strong>OBS Studio</strong>, pra gravar cada sessão.</p>
 
     <h2>Por que do zero, e não uma conta demo</h2>
 
