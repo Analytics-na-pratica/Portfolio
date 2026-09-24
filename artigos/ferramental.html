@@ -96,6 +96,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .divider{ height:1px; background: var(--line); margin: 48px 0; border:0; }
 
+  .article-nav{ display:flex; justify-content:space-between; gap: 16px; margin: 36px 0; flex-wrap:wrap; }
+  .article-nav--end{ justify-content:flex-end; }
+  .article-nav-card{
+    display:block; max-width: 280px; padding: 16px 20px;
+    background: var(--bg-raised); border: 1px solid var(--line-strong);
+    text-decoration:none; transition: border-color .2s ease;
+  }
+  .article-nav-card:hover{ border-color: var(--teal-bright); }
+  .article-nav-card.next{ text-align: right; }
+  .article-nav-label{ display:block; font-family: var(--mono); font-size: 11px; color: var(--ink-faint); margin-bottom: 6px; letter-spacing: 0.02em; }
+  .article-nav-title{ font-family: var(--serif); font-size: 15px; color: var(--ink); line-height: 1.3; }
+  .article-nav-card:hover .article-nav-title{ color: var(--teal-bright); }
+
   .cta-row{ display:flex; gap: 14px; flex-wrap:wrap; margin-top: 12px; }
   .btn{ font-family: var(--sans); font-size: 15px; font-weight: 500; padding: 12px 22px; border: 1px solid var(--line-strong); color: var(--ink); }
   .btn:hover{ border-color: var(--teal-bright); color: var(--teal-bright); }
@@ -169,7 +182,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <hr class="divider">
 
-    <p>No próximo, a mão vai na massa: crio as contas do projeto — repositório, GA4, GTM e a base do BigQuery.</p>
+    <div class="article-nav">
+      <a class="article-nav-card prev" href="dados-podem-enganar.html">
+        <span class="article-nav-label">← Artigo 02</span>
+        <span class="article-nav-title">Antes da parte técnica, um assunto que sustenta tudo: dado</span>
+      </a>
+      <a class="article-nav-card next" href="criando-contas.html">
+        <span class="article-nav-label">Artigo 04 →</span>
+        <span class="article-nav-title">Criando contas: construindo do zero</span>
+      </a>
+    </div>
 
     <div class="cta-row">
       <a class="btn btn-primary" href="../index.html#videos">Ver todos os vídeos</a>
