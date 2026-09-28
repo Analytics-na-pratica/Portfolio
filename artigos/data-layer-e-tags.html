@@ -177,21 +177,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <p>Na página de carrinho usei a mesma lógica, com o evento <code>add_to_cart</code>. Na página de confirmação, o evento <code>purchase</code>, com dois campos a mais: <code>value</code> (199.90) e <code>currency</code> ('BRL'), porque é aqui que o GA4 calcula receita. <code>value</code> sem <code>currency</code> é um dos erros mais comuns em implementação real, porque sem moeda o GA4 não calcula receita. Deixei os dois certos por enquanto. Esse erro específico eu simulo de propósito depois.</p>
 
-    <h2>Uma correção no meio do caminho</h2>
-
-    <p>Meu primeiro instinto foi criar três Variáveis de Camada de Dados manuais (uma pra <code>ecommerce.items</code>, uma pra <code>ecommerce.value</code>, uma pra <code>ecommerce.currency</code>) e mapear cada uma, na mão, dentro de cada tag.</p>
-
-    <p>Isso funciona parcialmente, mas não é o método recomendado pelo Google pra dado de ecommerce, e gera um problema real: o array <code>items</code> não é enviado do jeito certo quando mapeado como um parâmetro de evento comum, porque é uma lista de objetos, não um valor simples.</p>
-
-    <p>O caminho certo, segundo a documentação oficial, é uma opção dedicada dentro da própria tag: em <strong>Mais configurações &gt; E-commerce</strong>, marcar <strong>Enviar dados de e-commerce</strong> e escolher <strong>Camada de dados</strong> como fonte. Assim a tag lê o objeto <code>ecommerce</code> inteiro do Data Layer automaticamente (<code>items</code>, <code>value</code>, <code>currency</code>, tudo junto, na estrutura certa). Por isso, não criei variáveis manuais de ecommerce.</p>
-
     <h2>Acionadores e tags</h2>
 
     <p>Criei três acionadores do tipo Evento personalizado, um pra cada nome de evento: <code>view_item</code>, <code>add_to_cart</code> e <code>purchase</code>. Nomeei com prefixo (<code>CE - view_item</code>, por exemplo) pra identificar rápido depois.</p>
 
     <p>Antes das tags de evento, criei a tag de configuração do Google: toda tag de evento GA4 referencia essa tag base, que carrega o Measurement ID. Sem ela, o Tag Manager nem deixa configurar uma tag de evento. Tipo Configuração do GA4, com o Measurement ID e o acionador Todas as Páginas.</p>
 
-    <p>Em seguida, as três tags do tipo Evento GA4, cada uma referenciando a tag de configuração e disparada pelo acionador correspondente. Em cada uma, o passo que muda tudo: Mais configurações, E-commerce, marcar <strong>Enviar dados de e-commerce</strong> e escolher <strong>Camada de dados</strong>. Não precisei adicionar nada em "Parâmetros de evento".</p>
+    <p>Em seguida, as três tags do tipo Evento GA4, cada uma referenciando a tag de configuração e disparada pelo acionador correspondente.</p>
 
     <h2>Testando e publicando</h2>
 
