@@ -76,6 +76,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   article code{ font-family: var(--mono); font-size: 0.9em; background: var(--bg-raised); padding: 2px 6px; border-radius: 3px; color: var(--teal-bright); }
   article pre{ background: var(--bg-raised); border: 1px solid var(--line-strong); padding: 16px 18px; overflow-x: auto; margin: 0 0 22px; }
   article pre code{ background: none; padding: 0; border-radius: 0; font-size: 13px; line-height: 1.55; color: var(--ink-muted); }
+  .article-media{
+    margin: 28px 0; border: 1px solid var(--line-strong); border-radius: 6px;
+    overflow: hidden; background: var(--bg-raised);
+  }
+  .article-media img{ display:block; width:100%; height:auto; }
+  .article-media figcaption{
+    padding: 12px 16px; font-family: var(--mono); font-size: 13px;
+    color: var(--ink-faint); border-top: 1px solid var(--line);
+  }
   .lede{ font-size: 19px; color: var(--ink); }
 
   .video-card{
@@ -190,6 +199,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>No Modo de Visualização do Tag Manager, naveguei pelo funil inteiro (início, produto, carrinho e confirmação) e conferi se cada tag disparava no momento certo, com os parâmetros preenchidos. Confirmado, enviei e publiquei o contêiner.</p>
 
     <p>No GA4, em Relatórios em tempo real, naveguei de novo e confirmei: <code>page_view</code> chegando automático, e <code>view_item</code>, <code>add_to_cart</code> e <code>purchase</code> chegando das tags que acabei de configurar.</p>
+
+    <figure class="article-media">
+      <img src="../GIFs/ga4_video5_tempo_real.gif" alt="Conferindo os eventos de ecommerce no relatório de tempo real do GA4" loading="lazy">
+      <figcaption>GA4 → Relatórios → Tempo real</figcaption>
+    </figure>
 
     <div class="video-card">
       <a class="video-card-thumb" href="https://youtu.be/vjeYqyMy244" target="_blank" rel="noopener" aria-label="Assistir ao vídeo 05 no YouTube">

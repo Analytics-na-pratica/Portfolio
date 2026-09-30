@@ -227,7 +227,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .video-item-title{ color: var(--ink); font-size: 14px; font-weight:500; }
 
   /* ---------- Artigos ---------- */
-  .article-grid{ display:flex; flex-wrap:wrap; gap: 24px; border-top: 1px solid var(--line); padding-top: 24px; }
+  .article-grid{
+    display:flex; flex-wrap:nowrap; gap: 24px;
+    overflow-x:auto; scroll-snap-type: x mandatory;
+    border-top: 1px solid var(--line); padding-top: 24px; padding-bottom: 12px;
+    scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent;
+  }
+  .article-grid .article-card{ flex: 0 0 320px; scroll-snap-align: start; }
   .article-card{
     display:block; width: 320px; max-width:100%;
     background: var(--bg-raised); border: 1px solid var(--line-strong);
@@ -253,15 +259,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .article-card:hover .article-card-cta{ color: var(--blue); }
   .article-card-cta svg{ width: 13px; height: 13px; transition: transform .2s ease; }
   .article-card:hover .article-card-cta svg{ transform: translateX(3px); }
-
-  .empty-state{
-    margin-top: 32px;
-    border: 1px dashed var(--line-strong);
-    padding: 40px 32px;
-    max-width: 56ch;
-  }
-  .empty-state p{ margin:0; color: var(--ink-muted); font-size: 15px; }
-  .empty-state .empty-state-sub{ margin-top: 8px; color: var(--ink-faint); font-family: var(--mono); font-size: 13px; }
 
   /* ---------- Contato ---------- */
   .contact-layout{ display:grid; grid-template-columns: 1fr auto; gap: 40px; align-items:start; }
@@ -525,11 +522,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="article-card-cta">Ler artigo <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
           </div>
         </a>
-      </div>
-
-      <div class="empty-state">
-        <p>Os próximos artigos ainda estão sendo escritos.</p>
-        <p class="empty-state-sub">Assim que publicados, aparecem aqui.</p>
       </div>
     </div>
   </section>
