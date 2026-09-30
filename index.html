@@ -227,13 +227,66 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .video-item-title{ color: var(--ink); font-size: 14px; font-weight:500; }
 
   /* ---------- Artigos ---------- */
+  .article-carousel{
+    position: relative;
+  }
   .article-grid{
     display:flex; flex-wrap:nowrap; gap: 24px;
     overflow-x:auto; scroll-snap-type: x mandatory;
-    border-top: 1px solid var(--line); padding-top: 24px; padding-bottom: 12px;
-    scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent;
+    border-top: 1px solid var(--line); padding-top: 24px; padding-bottom: 4px;
+    scrollbar-width: none; -ms-overflow-style: none;
+  }
+  .article-grid::-webkit-scrollbar{
+    display: none;
   }
   .article-grid .article-card{ flex: 0 0 320px; scroll-snap-align: start; }
+  .article-carousel::before,
+  .article-carousel::after{
+    content: "";
+    position: absolute;
+    top: 24px;
+    bottom: 4px;
+    width: 56px;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .article-carousel::before{
+    left: 0;
+    background: linear-gradient(90deg, var(--bg) 0%, transparent 100%);
+  }
+  .article-carousel::after{
+    right: 0;
+    background: linear-gradient(270deg, var(--bg) 0%, transparent 100%);
+  }
+  .article-carousel-arrow{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--line-strong);
+    background: var(--bg-raised);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: rgba(0,0,0,0.38) 0px 10px 28px;
+    transition: border-color 0.2s, color 0.2s, opacity 0.2s;
+  }
+  .article-carousel-arrow:hover{
+    border-color: var(--teal-bright);
+    color: var(--teal-bright);
+  }
+  .article-carousel-prev{ left: -8px; }
+  .article-carousel-next{ right: -8px; }
+  .article-carousel-arrow[disabled]{
+    opacity: 0.3;
+    cursor: default;
+    pointer-events: none;
+  }
   .article-card{
     display:block; width: 320px; max-width:100%;
     background: var(--bg-raised); border: 1px solid var(--line-strong);
@@ -455,6 +508,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>Registros curtos e técnicos sobre o que dá errado — e por quê — na implementação de analytics no dia a dia.</p>
       </div>
 
+      <div class="article-carousel">
+      <button type="button" class="article-carousel-arrow article-carousel-prev" aria-label="Artigos anteriores">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"></path></svg>
+      </button>
+
       <div class="article-grid">
         <a class="article-card" href="artigos/apresentacao-pessoal.html">
           <div class="article-card-banner">
@@ -523,6 +581,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </a>
       </div>
+
+      <button type="button" class="article-carousel-arrow article-carousel-next" aria-label="Próximos artigos">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"></path></svg>
+      </button>
+    </div>
     </div>
   </section>
 
@@ -575,6 +638,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       toggle.setAttribute('aria-expanded', 'false');
     });
   });
+</script>
+
+<script>
+(function () {
+  var grid = document.querySelector('#artigos .article-grid');
+  var prevBtn = document.querySelector('.article-carousel-prev');
+  var nextBtn = document.querySelector('.article-carousel-next');
+  if (!grid || !prevBtn || !nextBtn) return;
+
+  function scrollStep() {
+    var card = grid.querySelector('.article-card');
+    var gap = 24;
+    return card ? card.offsetWidth + gap : 344;
+  }
+
+  function updateArrows() {
+    var max = grid.scrollWidth - grid.clientWidth - 2;
+    prevBtn.disabled = grid.scrollLeft <= 0;
+    nextBtn.disabled = grid.scrollLeft >= max;
+  }
+
+  prevBtn.addEventListener('click', function () {
+    grid.scrollBy({ left: -scrollStep(), behavior: 'smooth' });
+  });
+  nextBtn.addEventListener('click', function () {
+    grid.scrollBy({ left: scrollStep(), behavior: 'smooth' });
+  });
+  grid.addEventListener('scroll', updateArrows);
+  window.addEventListener('resize', updateArrows);
+  updateArrows();
+})();
 </script>
 
 </body>
