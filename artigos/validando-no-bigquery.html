@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Erros comuns de tracking em ecommerce: como eu diagnostico e corrijo — Analytics na Prática</title>
-<meta name="description" content="Simulei uma auditoria real de tracking em ecommerce: erros comuns inseridos de propósito, e o processo completo de diagnóstico e correção de cada um.">
+<title>Validando o GA4 com SQL no BigQuery — Analytics na Prática</title>
+<meta name="description" content="Exportação diária do GA4 para o BigQuery, a estrutura da tabela de eventos e três queries para conferir o relatório contra o dado bruto.">
 
 <link rel="icon" type="image/png" href="data:image/png;base64,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">
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -85,6 +85,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     padding: 12px 16px; font-family: var(--mono); font-size: 13px;
     color: var(--ink-faint); border-top: 1px solid var(--line);
   }
+  article ul, article ol{ color: var(--ink-muted); margin: 0 0 22px; padding-left: 24px; }
+  article li{ margin-bottom: 8px; }
+  article li:last-child{ margin-bottom: 0; }
+  .table-scroll{ overflow-x: auto; margin: 0 0 22px; border: 1px solid var(--line); }
+  .table-scroll table{ width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 13px; }
+  .table-scroll th, .table-scroll td{ padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  .table-scroll th{ color: var(--teal); font-weight: 500; background: var(--bg-raised); }
+  .table-scroll td{ color: var(--ink-muted); }
+  .table-scroll tr:last-child td{ border-bottom: 0; }
+  .callout{ border-left: 3px solid var(--teal); background: var(--bg-raised); padding: 16px 18px; margin: 0 0 22px; }
+  .callout-title{ display: block; font-family: var(--mono); font-size: 12px; color: var(--teal-bright); margin-bottom: 6px; }
+  .callout p{ margin: 0; }
   .lede{ font-size: 19px; color: var(--ink); }
 
   .video-card{
@@ -144,64 +156,178 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <main id="conteudo">
   <div class="hero wrap">
-    <p class="eyebrow">ERROS COMUNS</p>
-    <h1>Erros comuns de tracking em ecommerce: como eu diagnostico e corrijo</h1>
+    <p class="eyebrow">BIGQUERY E SQL</p>
+    <h1>Validando o GA4 com SQL: do relatório pronto ao dado bruto</h1>
     <div class="hero-meta">
       <span>Marcelo Soares Dias</span>
       <span>·</span>
-      <span>Artigo 06</span>
+      <span>Artigo 07</span>
     </div>
   </div>
 
   <article class="wrap">
-    <p class="lede">Esse é o vídeo mais prático da série até aqui.</p>
+    <p class="lede">Ativei a exportação do GA4 para o BigQuery e usei três queries em SQL para conferir o que a interface mostra contra o dado bruto. Este artigo traz o passo a passo, as queries prontas para copiar e os erros que apareceram no caminho.</p>
 
-    <p>Em vez de só mostrar tracking funcionando, simulei o trabalho real de uma auditoria: inseri erros que aparecem com frequência em implementações de ecommerce, e documentei o processo completo de diagnóstico e correção de cada um.</p>
+    <h2>Por que olhar o dado bruto</h2>
 
-    <h2>Um erro real antes mesmo de começar</h2>
+    <p>O relatório do GA4 é uma camada pronta: o dado já chega agregado e processado. Para auditar tracking, eu quero ver cada evento como foi gravado. O BigQuery recebe esse dado linha a linha, e o SQL permite contar, cruzar e comparar com outras fontes.</p>
 
-    <p>Antes dos erros planejados, encontrei um problema de verdade. Na fase de implementação, eu tinha configurado as tags de ecommerce mapeando <code>items</code>, <code>value</code> e <code>currency</code> manualmente como parâmetros de evento — e isso não funciona corretamente para o array <code>items</code>. A correção: dentro da tag, em <strong>Mais configurações</strong> &gt; <strong>E-commerce</strong>, marcar <strong>Enviar dados de e-commerce</strong> com <strong>Camada de dados</strong> como fonte. Isso faz a tag ler o objeto <code>ecommerce</code> inteiro, sem mapeamento manual.</p>
+    <h2>Antes de começar: retenção de dados</h2>
 
-    <figure class="article-media">
-      <img src="../GIFs/gtm_video6_enviar_dados_ecommerce_v2.gif" alt="Marcando a opção Enviar dados de e-commerce na tag do GTM" loading="lazy">
-      <figcaption>Tag do GTM → Mais configurações → E-commerce → Enviar dados de e-commerce</figcaption>
-    </figure>
+    <p>Por padrão, o GA4 guarda dados de evento por só 2 meses. O máximo disponível fora do Analytics 360 é 14 meses.</p>
 
-    <p>Isso também é auditoria: errar, encontrar, corrigir — e documentar os três passos.</p>
+    <ol>
+      <li>No GA4, abrir <strong>Admin &gt; Coleta e modificação de dados &gt; Retenção de dados</strong>.</li>
+      <li>Em retenção de dados de evento, escolher <strong>14 meses</strong>.</li>
+      <li>Salvar.</li>
+    </ol>
 
-    <h2>Erro 1 — Disparo duplicado</h2>
+    <p>Esse ajuste não afeta o BigQuery, onde os dados exportados ficam guardados sem esse limite. Ele afeta os relatórios de Exploração dentro da própria interface do GA4.</p>
 
-    <p>Duplicar a tag inteira de <code>purchase</code> (não só um segundo acionador — uma tag só dispara uma vez por evento, não importa quantos acionadores dela batam). O sintoma: contagem de <code>purchase</code> dobrada no Tempo Real e dois eventos idênticos no DebugView para a mesma compra. Causa: duas tags para o mesmo evento. Correção: excluir a duplicata.</p>
+    <h2>Ativando a exportação</h2>
 
-    <h2>Erro 2 — Evento sem moeda</h2>
+    <ol>
+      <li><strong>Admin &gt; Coleta e modificação de dados &gt; Vínculos do BigQuery</strong>.</li>
+      <li>Clicar em <strong>Vincular</strong>.</li>
+      <li>Escolher o projeto do Google Cloud criado na Fase 0 (o vínculo exige um projeto que já exista).</li>
+      <li>Em frequência, escolher <strong>Diária</strong>.</li>
+      <li>Deixar desmarcada a opção de identificadores de publicidade (é só para projetos com app mobile).</li>
+      <li>Confirmar e esperar: a primeira exportação pode levar algumas horas.</li>
+    </ol>
 
-    <p>Remover o campo <code>currency</code> do payload de compra no código do site. O sintoma só aparece no DebugView, com o Preview do GTM aberto — um relatório padrão demora demais para processar e não serve para validar uma mudança recente. Causa: campo ausente na origem. Correção: devolver o campo.</p>
+    <div class="callout">
+      <span class="callout-title">Diária ou Streaming?</span>
+      <p>A exportação por Streaming exige faturamento ativo no projeto do Google Cloud, ou seja, cartão cadastrado. Isso quebraria a regra deste projeto de ser 100% gratuito, sem cartão em nenhuma etapa. A exportação Diária não tem essa exigência.</p>
+    </div>
 
-    <figure class="article-media">
-      <img src="../GIFs/ga4_video6_debugview.gif" alt="Acessando o DebugView no GA4 pelo menu de Administrador" loading="lazy">
-      <figcaption>GA4 → Administrador → Exibição de dados → DebugView</figcaption>
-    </figure>
+    <h2>Como a tabela exportada é organizada</h2>
 
-    <h2>Erro 3 — Acionador errado</h2>
+    <ul>
+      <li>O GA4 cria um dataset chamado <code>analytics_</code> seguido do ID da propriedade. No meu caso, <code>analytics_553297100</code>.</li>
+      <li>Dentro dele, há uma tabela de eventos por dia (<code>events_AAAAMMDD</code>) e uma de usuários (<code>pseudonymous_users_AAAAMMDD</code>). O console agrupa as tabelas diárias como <code>events_ (N)</code>.</li>
+      <li>Cada linha da tabela de eventos é um evento.</li>
+      <li><code>user_pseudo_id</code> identifica o navegador ou dispositivo, não uma pessoa.</li>
+    </ul>
 
-    <p>Trocar o acionador de <code>add_to_cart</code> de "Evento personalizado" para "Clique - Todos os elementos". Sintoma: a tag dispara em qualquer clique da página, não só no botão certo. Causa: acionador sem filtro. Correção: voltar para evento personalizado, nome exato do evento.</p>
+    <p>Os parâmetros de cada evento (<code>item_name</code>, <code>value</code>, <code>currency</code>) não ficam em colunas separadas. Ficam dentro de um campo repetido chamado <code>event_params</code>. Para ler esse campo é preciso uma sintaxe específica do SQL, o <code>UNNEST</code>.</p>
 
-    <h2>Erro 4 — Data Layer e Tag Manager desalinhados</h2>
+    <h2>Query 1: contar eventos por tipo</h2>
 
-    <p>Renomear a chave <code>item_name</code> para <code>nome_item</code> na página, sem alterar o Tag Manager. Sintoma: o nome do produto chega vazio no GA4. Causa: divergência de nome entre o que a página envia e o que a variável do GTM espera. Correção: alinhar os nomes.</p>
+    <p>O objetivo é saber quantos eventos de cada tipo existem e comparar com a interface do GA4. O asterisco em <code>events_*</code> lê todas as tabelas diárias de uma vez.</p>
 
-    <h2>O que fica dessa fase</h2>
+<pre><code>SELECT
+  event_name,
+  COUNT(*) AS total_eventos
+FROM `analytics_553297100.events_*`
+GROUP BY event_name
+ORDER BY total_eventos DESC</code></pre>
 
-    <p>O valor aqui não está na correção em si — está no processo de investigação. E uma limitação ficou exposta: o evento <code>purchase</code> não carrega <code>transaction_id</code>. Sem ele, não dá para diferenciar, em produção, uma duplicidade real de duas compras distintas. Isso só se resolve com SQL — assunto da próxima fase, com BigQuery.</p>
+    <p>Resultado no meu projeto:</p>
+
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>event_name</th><th>total_eventos</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>page_view</td><td>23</td></tr>
+          <tr><td>scroll</td><td>23</td></tr>
+          <tr><td>user_engagement</td><td>21</td></tr>
+          <tr><td>add_to_cart</td><td>5</td></tr>
+          <tr><td>purchase</td><td>5</td></tr>
+          <tr><td>view_item</td><td>5</td></tr>
+          <tr><td>session_start</td><td>3</td></tr>
+          <tr><td>first_visit</td><td>2</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Query 2: reconstruir o funil</h2>
+
+    <p>Quantos usuários chegaram em cada etapa: <code>view_item</code>, <code>add_to_cart</code> e <code>purchase</code>. Aqui a contagem é de usuários distintos, não de eventos.</p>
+
+<pre><code>SELECT
+  COUNT(DISTINCT CASE WHEN event_name = 'view_item' THEN user_pseudo_id END) AS viu_produto,
+  COUNT(DISTINCT CASE WHEN event_name = 'add_to_cart' THEN user_pseudo_id END) AS add_carrinho,
+  COUNT(DISTINCT CASE WHEN event_name = 'purchase' THEN user_pseudo_id END) AS comprou
+FROM `analytics_553297100.events_*`</code></pre>
+
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>viu_produto</th><th>add_carrinho</th><th>comprou</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>1</td><td>1</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <span class="callout-title">Por que a Query 1 mostra 5 e a Query 2 mostra 1?</span>
+      <p>As duas estão certas, mas medem coisas diferentes. A Query 1 conta eventos (linhas). A Query 2 conta usuários distintos (<code>COUNT(DISTINCT user_pseudo_id)</code>). Os 5 eventos de cada etapa vieram de um único navegador, o meu, que percorreu o funil 5 vezes. Por isso são 5 eventos e 1 usuário.</p>
+    </div>
+
+    <h2>Query 3: comparar o GA4 com um sistema interno</h2>
+
+    <p>Para simular uma divergência entre fontes, criei uma planilha fictícia de "vendas registradas no sistema interno". Ela precisa virar uma tabela no BigQuery para entrar no JOIN.</p>
+
+    <ol>
+      <li>No Google Sheets, importar um arquivo com duas colunas: <code>data</code> (formato AAAAMMDD, igual ao sufixo das tabelas do GA4) e <code>vendas</code> (número inteiro). Uma linha: <code>20261004</code> e <code>4</code>.</li>
+      <li>No BigQuery, criar um dataset novo chamado <code>vendas_sistema_interno</code>, na mesma região do dataset do GA4 (no meu caso, <code>southamerica-east1</code>). Região diferente faz o JOIN falhar.</li>
+      <li>Em <strong>Explorador &gt; Adicionar dados &gt; Google Sheets &gt; Federação do BigQuery</strong>, criar a tabela externa: origem Drive, link da planilha, formato Google Planilhas, dataset <code>vendas_sistema_interno</code>, tabela <code>vendas_sistema_interno</code>.</li>
+      <li>Marcar "Detectar automaticamente" no esquema e, em opções avançadas, colocar 1 em "Linhas de cabeçalho a ignorar".</li>
+      <li>Conferir a aba Esquema: devem aparecer <code>data</code> e <code>vendas</code>.</li>
+    </ol>
+
+<pre><code>SELECT
+  COALESCE(ga4.dia, CAST(sistema.data AS STRING)) AS dia,
+  IFNULL(ga4.compras_ga4, 0) AS compras_ga4,
+  IFNULL(sistema.vendas, 0) AS vendas_sistema,
+  IFNULL(ga4.compras_ga4, 0) - IFNULL(sistema.vendas, 0) AS diferenca
+FROM (
+  SELECT
+    _TABLE_SUFFIX AS dia,
+    COUNT(*) AS compras_ga4
+  FROM `analytics_553297100.events_*`
+  WHERE event_name = 'purchase'
+  GROUP BY dia
+) AS ga4
+FULL OUTER JOIN `vendas_sistema_interno.vendas_sistema_interno` AS sistema
+  ON ga4.dia = CAST(sistema.data AS STRING)
+ORDER BY dia</code></pre>
+
+    <p>Resultado: o GA4 registrou 5 compras e o sistema interno fictício, 4. Diferença de 1. É esse tipo de divergência que um relatório pronto não mostra, e que só aparece quando duas fontes são colocadas lado a lado.</p>
+
+    <div class="callout">
+      <span class="callout-title">Dado fictício</span>
+      <p>O "sistema interno" é uma planilha criada por mim para simular a divergência. O objetivo é demonstrar o método de comparação, não um caso real de negócio.</p>
+    </div>
+
+    <h2>Erros e pontos de atenção</h2>
+
+    <ul>
+      <li><strong>Tabela externa com colunas <code>string_field_0</code> e <code>string_field_1</code>:</strong> na primeira tentativa, o BigQuery não reconheceu o cabeçalho e tratou a linha 1 como dado. A Query 3 falhou com "Name data not found inside sistema". A correção foi recriar a tabela com "Detectar automaticamente" marcado e 1 linha de cabeçalho ignorada.</li>
+      <li><strong>Tipos diferentes no JOIN:</strong> <code>_TABLE_SUFFIX</code> é texto (STRING), mas a coluna <code>data</code> da planilha chega como número (INT64). Sem o <code>CAST(sistema.data AS STRING)</code>, o JOIN não funciona.</li>
+      <li><strong>Região do dataset:</strong> o dataset da planilha precisa estar na mesma região do dataset do GA4.</li>
+    </ul>
+
+    <h2>O que fica</h2>
+
+    <ul>
+      <li>Eventos e usuários são unidades diferentes. Antes de comparar números, confirme o que cada um está contando.</li>
+      <li>Conferir o relatório contra o dado bruto é o que separa confiar no número de confirmar o número.</li>
+      <li>Exportação Diária atende um projeto 100% gratuito, sem cartão.</li>
+    </ul>
 
     <div class="video-card">
-      <a class="video-card-thumb" href="https://youtu.be/bRzNHqbqAk8" target="_blank" rel="noopener" aria-label="Assistir ao vídeo 06 no YouTube">
-        <img src="../Thumbnails/6%20-%20Erros%20Comuns.png" alt="" loading="lazy">
+      <a class="video-card-thumb" href="https://youtu.be/oEZiUWIk60Y" target="_blank" rel="noopener" aria-label="Assistir ao vídeo 07 no YouTube">
+        <img src="../Thumbnails/thumbnail_video7.png" alt="" loading="lazy">
         <span class="video-card-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 1 L15 8 L2 15 Z" fill="currentColor"/></svg></span>
       </a>
       <div class="video-card-body">
-        <span class="k">VÍDEO 06</span>
-        <a class="t" href="https://youtu.be/bRzNHqbqAk8" target="_blank" rel="noopener">Assistir "6 - Erros Comuns" no YouTube</a>
+        <span class="k">VÍDEO 07</span>
+        <a class="t" href="https://youtu.be/oEZiUWIk60Y" target="_blank" rel="noopener">Assistir "7 - BigQuery e validação com SQL" no YouTube</a>
       </div>
     </div>
 
@@ -209,14 +335,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <hr class="divider">
 
+    <p>No próximo vídeo, transformo esse dado validado em dashboard no Data Studio e escrevo uma análise como se fosse para um cliente.</p>
+
     <div class="article-nav">
-      <a class="article-nav-card prev" href="data-layer-e-tags.html">
-        <span class="article-nav-label">← Artigo 05</span>
-        <span class="article-nav-title">Rastreando do zero na prática: Data Layer e tags</span>
-      </a>
-      <a class="article-nav-card next" href="validando-no-bigquery.html">
-        <span class="article-nav-label">Artigo 07 →</span>
-        <span class="article-nav-title">Validando o GA4 com SQL: do relatório pronto ao dado bruto</span>
+      <a class="article-nav-card prev" href="erros-comuns.html">
+        <span class="article-nav-label">← Artigo 06</span>
+        <span class="article-nav-title">Erros comuns de tracking em ecommerce: como eu diagnostico e corrijo</span>
       </a>
     </div>
 
