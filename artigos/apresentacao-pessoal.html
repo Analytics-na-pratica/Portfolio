@@ -59,8 +59,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .nav-logo{ width:24px; height:24px; }
   .nav-back{ font-family: var(--mono); font-size: 13px; color: var(--ink-muted); }
   .nav-back:hover{ color: var(--teal-bright); }
+  .nav-name, .nav-back{ white-space: nowrap; }
+  @media (max-width: 480px){
+    .nav{ padding: 0 16px; }
+    .nav-name{ font-size: 16px; gap: 8px; }
+    .nav-back{ font-size: 12px; }
+  }
 
-  .hero{ padding: 64px 0 40px; border-bottom: 1px solid var(--line); }
+  .hero{ padding: 64px 28px 40px; border-bottom: 1px solid var(--line); }
   .hero h1{ font-size: clamp(30px, 5vw, 44px); line-height: 1.12; margin-top: 14px; }
   .hero-meta{
     display:flex; gap: 16px; flex-wrap:wrap; margin-top: 22px;
